@@ -1,5 +1,12 @@
 # tinyfish-mcp
 
+## [1.0.6](https://github.com/CaoMeiYouRen/tinyfish-mcp/compare/v1.0.5...v1.0.6) (2026-05-17)
+
+
+### 🐛 Bug 修复
+
+* **http:** 简化服务器创建逻辑 ([0078a0f](https://github.com/CaoMeiYouRen/tinyfish-mcp/commit/0078a0f))
+
 ## [1.0.5](https://github.com/CaoMeiYouRen/tinyfish-mcp/compare/v1.0.4...v1.0.5) (2026-05-17)
 
 
