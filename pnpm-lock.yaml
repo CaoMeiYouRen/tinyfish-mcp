@@ -21,6 +21,8 @@ overrides:
   handlebars: ^4.7.9
   flatted: ^3.4.2
   srvx: ^0.11.13
+  '@semantic-release/github': ^12.0.0
+  '@semantic-release/npm': ^13.1.0
 
 importers:
 
