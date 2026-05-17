@@ -1,17 +1,31 @@
-version: "3"
-
 services:
-  server:
-    # build: .
+  tinyfish-mcp:
     container_name: 'tinyfish-mcp'
     image: ${DOCKER_IMAGE:-caomeiyouren/tinyfish-mcp}
     restart: unless-stopped
     ports:
-      - "3000:3000"
+      - '3000:3000'
     environment:
+      # --- 必填 ---
+      TINYFISH_API_KEY: ${TINYFISH_API_KEY}
+      # --- 鉴权（HTTP 模式下推荐开启） ---
+      AUTH_TOKEN: ${AUTH_TOKEN:-}
+      # AUTH_TOKENS: ${AUTH_TOKENS:-}
+      # AUTH_ENABLED: 'true'
+      # --- 限流（HTTP 模式下推荐开启） ---
+      # RATE_LIMIT_ENABLED: 'true'
+      # RATE_LIMIT_WINDOW: '60000'
+      # RATE_LIMIT_MAX: '30'
+      # --- 其他 ---
       NODE_ENV: production
-      PORT: 3000
-      TZ: "Asia/Shanghai"
+      PORT: '3000'
       LOGFILES: 'true'
+      TZ: Asia/Shanghai
     volumes:
       - ./logs:/app/logs
+    healthcheck:
+      test: ['CMD', 'node', '-e', "require('http').get('http://localhost:3000/',r=>{process.exit(r.statusCode===200?0:1)})"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
