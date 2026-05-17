@@ -6,4 +6,11 @@ export type Bindings = {
     TIMEOUT: string
     MAX_BODY_SIZE: string
     BENCHMARKS_TEST: string
+    TINYFISH_API_KEY: string
+    AUTH_ENABLED: string
+    AUTH_TOKEN: string
+    AUTH_TOKENS: string
+    RATE_LIMIT_ENABLED: string
+    RATE_LIMIT_WINDOW: string
+    RATE_LIMIT_MAX: string
 }

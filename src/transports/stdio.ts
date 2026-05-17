@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
-import { createMcpServer } from './mcp/handler'
+import { createMcpServer } from '../mcp/handler'
 
 async function main() {
     const server = createMcpServer()

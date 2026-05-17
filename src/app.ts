@@ -9,6 +9,9 @@ import { requestId } from 'hono/request-id'
 import { __DEV__ } from './env'
 import { loggerMiddleware } from './middlewares/logger'
 import { errorhandler, notFoundHandler } from './middlewares/error'
+import { authMiddleware } from './middlewares/auth'
+import { rateLimitMiddleware } from './middlewares/rate-limit'
+import { mcpHttpHandler } from './transports/http'
 import { Bindings } from './types'
 import routes from './routes'
 
@@ -49,6 +52,8 @@ app.all('/runtime', (c) => c.json({
 }))
 
 app.route('/', routes)
+
+app.all('/mcp', authMiddleware, rateLimitMiddleware, (c) => mcpHttpHandler(c))
 
 if (__DEV__) {
     showRoutes(app, {

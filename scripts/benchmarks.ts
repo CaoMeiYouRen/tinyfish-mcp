@@ -1,6 +1,5 @@
 import os from 'os'
-import path from 'path'
-import autocannon, { Client, Options } from 'autocannon'
+import autocannon, { Options } from 'autocannon'
 import dotenv from 'dotenv'
 import { Octokit } from 'octokit'
 import * as betterBytes from 'better-bytes'

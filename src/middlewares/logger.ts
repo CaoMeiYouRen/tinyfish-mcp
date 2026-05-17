@@ -40,30 +40,38 @@ async function createLogger() {
                     }),
                 ),
             }),
-            LOGFILES && new DailyRotateFile({
-                ...dailyRotateFileOption,
-                filename: '%DATE%.log',
-            }),
-            LOGFILES && new DailyRotateFile({
-                ...dailyRotateFileOption,
-                level: 'error',
-                filename: '%DATE%.errors.log',
-            }),
-        ].filter(Boolean),
+            LOGFILES
+                ? new DailyRotateFile({
+                    ...dailyRotateFileOption,
+                    filename: '%DATE%.log',
+                })
+                : null,
+            LOGFILES
+                ? new DailyRotateFile({
+                    ...dailyRotateFileOption,
+                    level: 'error',
+                    filename: '%DATE%.errors.log',
+                })
+                : null,
+        ].filter(Boolean) as never[],
         exceptionHandlers: [
-            LOGFILES && new DailyRotateFile({
-                ...dailyRotateFileOption,
-                level: 'error',
-                filename: '%DATE%.errors.log',
-            }),
-        ].filter(Boolean),
+            LOGFILES
+                ? new DailyRotateFile({
+                    ...dailyRotateFileOption,
+                    level: 'error',
+                    filename: '%DATE%.errors.log',
+                })
+                : null,
+        ].filter(Boolean) as never[],
         rejectionHandlers: [
-            LOGFILES && new DailyRotateFile({
-                ...dailyRotateFileOption,
-                level: 'error',
-                filename: '%DATE%.errors.log',
-            }),
-        ].filter(Boolean),
+            LOGFILES
+                ? new DailyRotateFile({
+                    ...dailyRotateFileOption,
+                    level: 'error',
+                    filename: '%DATE%.errors.log',
+                })
+                : null,
+        ].filter(Boolean) as never[],
     })
     return winstonLogger
 }

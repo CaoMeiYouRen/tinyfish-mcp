@@ -30,4 +30,4 @@ const cloudflareOptions: Options = {
     },
 }
 
-export default defineConfig([...['src/index.ts', 'src/vercel.ts', 'src/bun.ts'].map((e) => ({ ...tsupOptions, entry: [e] })), cloudflareOptions])
+export default defineConfig([...['src/index.ts', 'src/server.ts', 'src/vercel.ts', 'src/bun.ts'].map((e) => ({ ...tsupOptions, entry: [e] })), cloudflareOptions])

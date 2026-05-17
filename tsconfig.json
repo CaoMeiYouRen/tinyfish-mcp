@@ -6,7 +6,7 @@
         "allowJs": true,
         "checkJs": true,
         "sourceMap": false,
-        "rootDir": "./src",
+        "rootDir": "./",
         "outDir": "./dist",
         "declaration": true,
         "importHelpers": true,
@@ -36,11 +36,16 @@
         "src/*.ts",
         "src/**/*.ts",
         "src/*.tsx",
-        "src/**/*.tsx"
+        "src/**/*.tsx",
+        "test/*.ts",
+        "test/**/*.ts",
+        "scripts/*.ts",
     ],
     "exclude": [
         "node_modules",
         "**/*.spec.ts",
-        "**/node_modules/*"
+        "**/node_modules/*",
+        "test",
+        "scripts"
     ]
 }
