@@ -1,5 +1,12 @@
 # tinyfish-mcp
 
+## [1.0.4](https://github.com/CaoMeiYouRen/tinyfish-mcp/compare/v1.0.3...v1.0.4) (2026-05-17)
+
+
+### 🐛 Bug 修复
+
+* **docker:** 修正启动命令指向正确的服务器文件 ([1826e85](https://github.com/CaoMeiYouRen/tinyfish-mcp/commit/1826e85))
+
 ## [1.0.3](https://github.com/CaoMeiYouRen/tinyfish-mcp/compare/v1.0.2...v1.0.3) (2026-05-17)
 
 
