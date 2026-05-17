@@ -1,5 +1,12 @@
 # tinyfish-mcp
 
+## [1.0.5](https://github.com/CaoMeiYouRen/tinyfish-mcp/compare/v1.0.4...v1.0.5) (2026-05-17)
+
+
+### 🐛 Bug 修复
+
+* **http:** 重构获取服务器逻辑 ([cdf9347](https://github.com/CaoMeiYouRen/tinyfish-mcp/commit/cdf9347))
+
 ## [1.0.4](https://github.com/CaoMeiYouRen/tinyfish-mcp/compare/v1.0.3...v1.0.4) (2026-05-17)
 
 
