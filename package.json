@@ -1,6 +1,6 @@
 {
   "name": "tinyfish-mcp",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "一个基于 TinyFish 免费搜索 API 的 MCP（Model Context Protocol）服务，为 AI 助手提供实时网络搜索能力。支持通过 Stdio 和 HTTP 两种标准协议进行便捷集成，方便开发者将搜索功能接入到各类 AI 应用中。",
   "author": "CaoMeiYouRen",
   "private": true,
