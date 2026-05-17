@@ -15,9 +15,7 @@ async function getTransport(apiKey: string): Promise<WebStandardStreamableHTTPSe
 
     transportPromise = (async () => {
         const server = createMcpServer(apiKey)
-        const transport = new WebStandardStreamableHTTPServerTransport({
-            sessionIdGenerator: () => crypto.randomUUID(),
-        })
+        const transport = new WebStandardStreamableHTTPServerTransport()
         await server.connect(transport)
         return transport
     })()
