@@ -44,4 +44,4 @@ COPY --from=docker-minifier /app /app
 
 EXPOSE 3000
 
-CMD ["node", "dist/index.mjs"]
+CMD ["node", "dist/server.mjs"]
