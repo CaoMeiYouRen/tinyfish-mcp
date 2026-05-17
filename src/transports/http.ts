@@ -3,28 +3,22 @@ import { env } from 'hono/adapter'
 import { WebStandardStreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/webStandardStreamableHttp.js'
 import { createMcpServer } from '../mcp/handler'
 
-let transportPromise: Promise<WebStandardStreamableHTTPServerTransport> | null = null
+let serverPromise: Promise<ReturnType<typeof createMcpServer>> | null = null
 let currentApiKey: string | null = null
 
-async function getTransport(apiKey: string): Promise<WebStandardStreamableHTTPServerTransport> {
-    if (transportPromise && currentApiKey === apiKey) {
-        return transportPromise
+async function getServer(apiKey: string) {
+    if (serverPromise && currentApiKey === apiKey) {
+        return serverPromise
     }
-
     currentApiKey = apiKey
-
-    transportPromise = (async () => {
-        const server = createMcpServer(apiKey)
-        const transport = new WebStandardStreamableHTTPServerTransport()
-        await server.connect(transport)
-        return transport
-    })()
-
-    return transportPromise
+    serverPromise = (async () => createMcpServer(apiKey))()
+    return serverPromise
 }
 
 export async function mcpHttpHandler(c: Context): Promise<Response> {
     const apiKey = env(c).TINYFISH_API_KEY || ''
-    const transport = await getTransport(apiKey)
+    const server = await getServer(apiKey)
+    const transport = new WebStandardStreamableHTTPServerTransport()
+    await server.connect(transport)
     return transport.handleRequest(c.req.raw)
 }
