@@ -4,6 +4,9 @@
   <a href="https://hub.docker.com/r/caomeiyouren/tinyfish-mcp" target="_blank">
     <img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/caomeiyouren/tinyfish-mcp">
   </a>
+  <a href="https://app.codecov.io/gh/CaoMeiYouRen/tinyfish-mcp" target="_blank">
+    <img alt="Codecov" src="https://img.shields.io/codecov/c/github/CaoMeiYouRen/tinyfish-mcp">
+  </a>
   <a href="https://github.com/CaoMeiYouRen/tinyfish-mcp/actions?query=workflow%3ARelease" target="_blank">
     <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/CaoMeiYouRen/tinyfish-mcp/release.yml?branch=master">
   </a>
