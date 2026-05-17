@@ -1,5 +1,12 @@
 # tinyfish-mcp
 
+## [1.0.3](https://github.com/CaoMeiYouRen/tinyfish-mcp/compare/v1.0.2...v1.0.3) (2026-05-17)
+
+
+### 🐛 Bug 修复
+
+* **env:** 优化环境变量加载逻辑 ([5498f1d](https://github.com/CaoMeiYouRen/tinyfish-mcp/commit/5498f1d))
+
 ## [1.0.2](https://github.com/CaoMeiYouRen/tinyfish-mcp/compare/v1.0.1...v1.0.2) (2026-05-17)
 
 
