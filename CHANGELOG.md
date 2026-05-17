@@ -1,5 +1,12 @@
 # tinyfish-mcp
 
+## [1.0.2](https://github.com/CaoMeiYouRen/tinyfish-mcp/compare/v1.0.1...v1.0.2) (2026-05-17)
+
+
+### 🐛 Bug 修复
+
+* **handler:** 支持可选的 API 密钥参数 ([6723689](https://github.com/CaoMeiYouRen/tinyfish-mcp/commit/6723689))
+
 ## [1.0.1](https://github.com/CaoMeiYouRen/tinyfish-mcp/compare/v1.0.0...v1.0.1) (2026-05-17)
 
 
