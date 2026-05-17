@@ -45,7 +45,8 @@
     "deploy:wrangler": "wrangler deploy",
     "dev:bun": "cross-env NODE_ENV=development bun --watch src/bun.ts",
     "typecheck": "tsc --noEmit",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "prepublishOnly": "npm run prebuild && npm run build"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20260517.1",

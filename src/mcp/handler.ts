@@ -1,4 +1,5 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
+import { name, version } from '../../package.json'
 import { TinyFishSearchAdapter } from '../adapters/tinyfish-search'
 import { TinyFishFetchAdapter } from '../adapters/tinyfish-fetch'
 import { SearchService } from '../services/search'
@@ -15,8 +16,8 @@ export function createMcpServer() {
     const fetchService = new FetchService(new TinyFishFetchAdapter(apiKey))
 
     const server = new McpServer({
-        name: 'tinyfish-mcp',
-        version: '0.1.0',
+        name,
+        version,
     })
 
     server.registerTool(
