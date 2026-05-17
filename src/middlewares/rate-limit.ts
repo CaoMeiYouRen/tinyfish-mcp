@@ -1,6 +1,6 @@
 import type { Context } from 'hono'
 import type { Next } from 'hono/types'
-import { RATE_LIMIT_ENABLED, RATE_LIMIT_WINDOW, RATE_LIMIT_MAX } from '../env'
+import { env } from 'hono/adapter'
 
 interface RateLimitEntry {
     count: number
@@ -18,22 +18,26 @@ function getKey(c: Context): string {
 }
 
 export async function rateLimitMiddleware(c: Context, next: Next) {
-    if (!RATE_LIMIT_ENABLED) {
+    const rateLimitEnabled = env(c).RATE_LIMIT_ENABLED !== 'false'
+    if (!rateLimitEnabled) {
         return next()
     }
+
+    const rateLimitWindow = parseInt(env(c).RATE_LIMIT_WINDOW || '60000') || 60000
+    const rateLimitMax = parseInt(env(c).RATE_LIMIT_MAX || '30') || 30
 
     const key = getKey(c)
     const now = Date.now()
 
     let entry = store.get(key)
     if (!entry || now > entry.resetAt) {
-        entry = { count: 0, resetAt: now + RATE_LIMIT_WINDOW }
+        entry = { count: 0, resetAt: now + rateLimitWindow }
         store.set(key, entry)
     }
 
     entry.count++
 
-    if (entry.count > RATE_LIMIT_MAX) {
+    if (entry.count > rateLimitMax) {
         const retryAfter = Math.ceil((entry.resetAt - now) / 1000)
         return c.json(
             { error: 'Rate limit exceeded' },

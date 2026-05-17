@@ -1,18 +1,5 @@
 import { describe, it, expect, beforeEach } from 'vitest'
 import { Hono } from 'hono'
-
-let rateLimitEnabled = true
-let rateLimitMax = 3
-
-vi.mock('../../src/env', async () => {
-    const actual = await vi.importActual<typeof import('../../src/env')>('../../src/env')
-    return {
-        ...actual,
-        get RATE_LIMIT_ENABLED() { return rateLimitEnabled },
-        get RATE_LIMIT_MAX() { return rateLimitMax },
-    }
-})
-
 import { rateLimitMiddleware } from '../../src/middlewares/rate-limit'
 
 function createApp() {
@@ -24,12 +11,13 @@ function createApp() {
 
 describe('rateLimitMiddleware', () => {
     beforeEach(() => {
-        rateLimitEnabled = true
-        rateLimitMax = 3
+        delete process.env.RATE_LIMIT_ENABLED
+        delete process.env.RATE_LIMIT_MAX
+        delete process.env.RATE_LIMIT_WINDOW
     })
 
     it('should skip rate limit when disabled', async () => {
-        rateLimitEnabled = false
+        process.env.RATE_LIMIT_ENABLED = 'false'
         const app = createApp()
         for (let i = 0; i < 10; i++) {
             const res = await app.request('/api')
@@ -38,6 +26,8 @@ describe('rateLimitMiddleware', () => {
     })
 
     it('should allow requests within the limit', async () => {
+        process.env.RATE_LIMIT_ENABLED = 'true'
+        process.env.RATE_LIMIT_MAX = '3'
         const app = createApp()
         for (let i = 0; i < 3; i++) {
             const res = await app.request('/api')
@@ -46,7 +36,8 @@ describe('rateLimitMiddleware', () => {
     })
 
     it('should return 429 when limit exceeded', async () => {
-        rateLimitMax = 2
+        process.env.RATE_LIMIT_ENABLED = 'true'
+        process.env.RATE_LIMIT_MAX = '2'
         const app = createApp()
 
         await app.request('/api')
