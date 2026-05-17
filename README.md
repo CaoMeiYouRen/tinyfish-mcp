@@ -23,60 +23,113 @@
 </p>
 
 
-> 一个基于 TinyFish 免费搜索 API 的 MCP（Model Context Protocol）服务，为 AI 助手提供实时网络搜索能力。支持通过 Stdio 和 HTTP 两种标准协议进行便捷集成，方便开发者将搜索功能接入到各类 AI 应用中。
+> 一个基于 TinyFish 免费搜索 API 的 MCP（Model Context Protocol）服务，为 AI 助手提供实时网络搜索与网页内容获取能力。支持 **Stdio** 和 **HTTP** 两种传输方式接入。
 
-## 🏠 主页
+## 功能
 
-[https://github.com/CaoMeiYouRen/tinyfish-mcp#readme](https://github.com/CaoMeiYouRen/tinyfish-mcp#readme)
+- **网络搜索** — 通过 `search` 工具进行关键词搜索，返回标题、摘要、URL 等结构化结果
+- **网页内容抓取** — 通过 `fetch` 工具获取指定 URL 的完整网页内容（Markdown / HTML / JSON）
+- **双协议支持** — Stdio 模式（本地进程）和 HTTP 模式（远程服务）均可
+- **鉴权保护** — HTTP 模式下支持 Bearer Token 鉴权，可配置多个 Token
+- **速率限制** — HTTP 模式下内置限流保护，防止接口滥用
+- **多云部署** — 支持 Docker、Vercel、Cloudflare Workers 等多种部署方式
 
+## 可用工具
 
-## 📦 依赖要求
+| 工具名 | 描述 |
+|---|---|
+| `search` | 网络搜索，返回结构化结果（标题、URL、摘要） |
+| `fetch` | 获取指定 URL 的完整网页内容，支持 Markdown/HTML/JSON 格式 |
 
+## 快速开始
 
-- node >=20
+### 准备
 
-## 🚀 安装
+1. 前往 [agent.tinyfish.ai/api-keys](https://agent.tinyfish.ai/api-keys) 获取 API Key
+2. 设置环境变量 `TINYFISH_API_KEY`
 
-```sh
-npm install
+### Stdio 模式（推荐用于个人开发）
+
+在 MCP 客户端（Claude Desktop / Cursor / Windsurf 等）配置文件中添加：
+
+```json
+{
+  "mcpServers": {
+    "tinyfish-search": {
+      "command": "npx",
+      "args": ["-y", "tinyfish-mcp"],
+      "env": {
+        "TINYFISH_API_KEY": "<your-api-key>"
+      }
+    }
+  }
+}
 ```
 
-## 👨‍💻 使用
+### HTTP 模式（推荐用于团队共享）
 
-```sh
-npm run start
+```bash
+# 1. 创建 .env 文件
+cat > .env << EOF
+TINYFISH_API_KEY=<your-api-key>
+AUTH_TOKEN=<your-auth-token>
+EOF
+
+# 2. 启动服务
+npx -y tinyfish-mcp-server
+# 服务运行在 http://localhost:3000
 ```
+
+在 MCP 客户端中配置：
+
+```json
+{
+  "mcpServers": {
+    "tinyfish-search": {
+      "url": "http://localhost:3000/mcp",
+      "headers": {
+        "Authorization": "Bearer <your-auth-token>"
+      }
+    }
+  }
+}
+```
+
+## 环境变量
+
+| 变量名 | 说明 | 默认值 | 适用模式 |
+|---|---|---|---|
+| `TINYFISH_API_KEY` | TinyFish API Key（必填） | — | 通用 |
+| `AUTH_TOKEN` | 鉴权 Token | — | HTTP |
+| `AUTH_TOKENS` | 多 Token（逗号分隔） | — | HTTP |
+| `AUTH_ENABLED` | 鉴权开关 | `true` | HTTP |
+| `RATE_LIMIT_ENABLED` | 限流开关 | `true` | HTTP |
+| `RATE_LIMIT_WINDOW` | 限流窗口（ms） | `60000` | HTTP |
+| `RATE_LIMIT_MAX` | 窗口内最大请求数 | `30` | HTTP |
+| `PORT` | HTTP 端口 | `3000` | HTTP |
+
+## 文档
+
+- [部署指南](./docs/deployment.md) — Docker / Vercel / Cloudflare Workers 部署
+- [使用指南](./docs/usage.md) — 详细配置与 MCP 客户端接入
+- [设计文档](./docs/plan.md) — 架构设计与技术方案
 
 ## 🛠️ 开发
 
-```sh
-npm run dev
-```
+### 依赖要求
 
-## 🔧 编译
+- node >=20
 
-```sh
-npm run build
-```
-
-## 🧪 测试
+### 常用命令
 
 ```sh
-npm run test
+pnpm install       # 安装依赖
+pnpm run dev       # 开发模式
+pnpm run build     # 编译
+pnpm run typecheck # 类型检查
+pnpm run lint      # 代码检查
+pnpm run test      # 运行测试
 ```
-
-## 🔍 Lint
-
-```sh
-npm run lint
-```
-
-## 💾 Commit
-
-```sh
-npm run commit
-```
-
 
 ## 👤 作者
 
@@ -85,7 +138,6 @@ npm run commit
 
 -   Website: [https://blog.cmyr.ltd/](https://blog.cmyr.ltd/)
 -   GitHub: [@CaoMeiYouRen](https://github.com/CaoMeiYouRen)
-
 
 ## 🤝 贡献
 
@@ -99,7 +151,6 @@ npm run commit
   <img src="https://oss.cmyr.dev/images/202306192324870.png" width="312px" height="78px" alt="在爱发电支持我">
 </a>
 
-
 ## 🌟 Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=CaoMeiYouRen/tinyfish-mcp&type=Date)](https://star-history.com/#CaoMeiYouRen/tinyfish-mcp&Date)
@@ -111,3 +162,4 @@ This project is [MIT](https://github.com/CaoMeiYouRen/tinyfish-mcp/blob/master/L
 
 ***
 _This README was generated with ❤️ by [cmyr-template-cli](https://github.com/CaoMeiYouRen/cmyr-template-cli)_
+
