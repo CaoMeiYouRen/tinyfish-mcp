@@ -769,3 +769,4 @@ npm run test       # vitest run
 | Search / Fetch API 限流 | 服务降级 | 限流中间件 + 后续多 Token 轮换 |
 | MCP SDK 版本不兼容 | 客户端连接失败 | 锁定 MCP SDK 版本，跟进协议变更 |
 | Fetch API 110s 后端超时 | 长时间等待 | MCP handler 内设置合理的 client-side 超时（150s），并通过 `errors[]` 透传超时信息 |
+| Cloudflare Workers SSE 500 | 无法部署到 Workers | `WebStandardStreamableHTTPServerTransport` 的有状态 SSE 与 Workers 无状态模型不兼容，暂不支持。后续探索 WebSocket 或 Queue 方案 |

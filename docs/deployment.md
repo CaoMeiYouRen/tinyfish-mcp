@@ -10,7 +10,6 @@ tinyfish-mcp 支持多种部署方式，可根据需求选择。
 | Node.js 服务 | 自建服务器，团队共享 | HTTP |
 | Docker | 容器化部署 | HTTP |
 | Vercel | Serverless 部署 | HTTP |
-| Cloudflare Workers | Edge 边缘部署 | HTTP |
 
 ---
 
@@ -171,38 +170,7 @@ vercel --prod \
 
 ---
 
-## 五、Cloudflare Workers 部署
-
-### 5.1 准备工作
-
-```bash
-npm install -g wrangler
-wrangler login
-```
-
-### 5.2 部署
-
-```bash
-# 编译 Cloudflare Workers 入口
-pnpm run build
-
-# 设置环境变量（secret）
-wrangler secret put TINYFISH_API_KEY
-wrangler secret put AUTH_TOKEN
-
-# 部署
-pnpm run deploy:wrangler
-```
-
-或使用自定义域名：
-
-```bash
-wrangler deploy --routes "mcp.example.com/*"
-```
-
----
-
-## 六、Nginx 反向代理
+## 五、Nginx 反向代理
 
 如需将服务暴露到公网，推荐使用 Nginx 反向代理：
 
@@ -225,3 +193,11 @@ server {
 ```
 
 > MCP SSE 连接需要长连接支持，务必设置 `proxy_read_timeout` 和 `proxy_buffering off`。
+
+---
+
+## 已知限制
+
+### Cloudflare Workers
+
+暂不支持部署到 Cloudflare Workers。原因是 `WebStandardStreamableHTTPServerTransport` 的 SSE 长连接与 Workers 的无状态运行模型不兼容，会出现 SSE 500 错误。后续版本会探索基于 WebSocket 或 Queue 的方案。

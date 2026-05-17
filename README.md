@@ -32,7 +32,7 @@
 - **双协议支持** — Stdio 模式（本地进程）和 HTTP 模式（远程服务）均可
 - **鉴权保护** — HTTP 模式下支持 Bearer Token 鉴权，可配置多个 Token
 - **速率限制** — HTTP 模式下内置限流保护，防止接口滥用
-- **多云部署** — 支持 Docker、Vercel、Cloudflare Workers 等多种部署方式
+- **多云部署** — 支持 Docker、Vercel 等多种部署方式
 
 ## 可用工具
 
