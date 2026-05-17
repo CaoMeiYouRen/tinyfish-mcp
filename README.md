@@ -80,7 +80,8 @@ npm run commit
 
 **CaoMeiYouRen**
 
-* GitHub: [@CaoMeiYouRen](https://github.com/CaoMeiYouRen)
+-   Website: [https://blog.cmyr.ltd/](https://blog.cmyr.ltd/)
+-   GitHub: [@CaoMeiYouRen](https://github.com/CaoMeiYouRen)
 
 
 ## 🤝 贡献
