@@ -1,5 +1,12 @@
 # tinyfish-mcp
 
+# [1.1.0](https://github.com/CaoMeiYouRen/tinyfish-mcp/compare/v1.0.6...v1.1.0) (2026-05-19)
+
+
+### ✨ 新功能
+
+* **search:** 添加低质域名过滤功能 ([21f41a6](https://github.com/CaoMeiYouRen/tinyfish-mcp/commit/21f41a6))
+
 ## [1.0.6](https://github.com/CaoMeiYouRen/tinyfish-mcp/compare/v1.0.5...v1.0.6) (2026-05-17)
 
 
