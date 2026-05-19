@@ -29,6 +29,10 @@ export const __DEV__ = process.env.NODE_ENV === 'development'
 
 export const PORT = parseInt(process.env.PORT || '3000') || 3000
 
+function parseCsvEnv(value: string | undefined): string[] {
+    return value ? value.split(',').map((item) => item.trim()).filter(Boolean) : []
+}
+
 // 是否写入日志到文件
 export const LOGFILES = process.env.LOGFILES === 'true'
 
@@ -44,7 +48,8 @@ export function getApiKey(): string {
 
 export const AUTH_ENABLED = process.env.AUTH_ENABLED !== 'false'
 export const AUTH_TOKEN = process.env.AUTH_TOKEN || ''
-export const AUTH_TOKENS = process.env.AUTH_TOKENS ? process.env.AUTH_TOKENS.split(',').map((t) => t.trim()).filter(Boolean) : []
+export const AUTH_TOKENS = parseCsvEnv(process.env.AUTH_TOKENS)
+export const SEARCH_EXCLUDED_DOMAINS = parseCsvEnv(process.env.SEARCH_EXCLUDED_DOMAINS)
 
 export const RATE_LIMIT_ENABLED = process.env.RATE_LIMIT_ENABLED !== 'false'
 export const RATE_LIMIT_WINDOW = parseInt(process.env.RATE_LIMIT_WINDOW || '60000') || 60000

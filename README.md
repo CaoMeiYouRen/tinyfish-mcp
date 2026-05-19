@@ -28,6 +28,7 @@
 ## 功能
 
 - **网络搜索** — 通过 `search` 工具进行关键词搜索，返回标题、摘要、URL 等结构化结果
+- **低质域名过滤** — 默认过滤一批内容农场和低原创价值站点，并支持按请求或环境变量追加排除域名
 - **网页内容抓取** — 通过 `fetch` 工具获取指定 URL 的完整网页内容（Markdown / HTML / JSON）
 - **双协议支持** — Stdio 模式（本地进程）和 HTTP 模式（远程服务）均可
 - **鉴权保护** — HTTP 模式下支持 Bearer Token 鉴权，可配置多个 Token
@@ -100,6 +101,7 @@ npx -y tinyfish-mcp-server
 | 变量名 | 说明 | 默认值 | 适用模式 |
 |---|---|---|---|
 | `TINYFISH_API_KEY` | TinyFish API Key（必填） | — | 通用 |
+| `SEARCH_EXCLUDED_DOMAINS` | 额外排除的搜索域名列表，逗号分隔 | — | 通用 |
 | `AUTH_TOKEN` | 鉴权 Token | — | HTTP |
 | `AUTH_TOKENS` | 多 Token（逗号分隔） | — | HTTP |
 | `AUTH_ENABLED` | 鉴权开关 | `true` | HTTP |

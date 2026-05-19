@@ -1,7 +1,7 @@
 export const SEARCH_TOOL = {
     name: 'search',
     title: 'Search the web',
-    description: '通过 TinyFish 搜索API进行网络搜索，返回包含标题、URL、摘要的结构化结果',
+    description: '通过 TinyFish 搜索API进行网络搜索，返回包含标题、URL、摘要的结构化结果。支持通过 excludedDomains 排除指定域名，默认会过滤一批低质量内容站点。',
     annotations: {
         readOnlyHint: true,
     },

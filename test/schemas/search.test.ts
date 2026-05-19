@@ -38,4 +38,22 @@ describe('SearchParamsSchema', () => {
         })
         expect(result.success).toBe(true)
     })
+
+    it('should accept excluded domains with wildcard patterns', () => {
+        const result = SearchParamsSchema.safeParse({
+            query: 'test',
+            excludedDomains: ['*.sohu.com', 'baijiahao.baidu.com'],
+        })
+
+        expect(result.success).toBe(true)
+    })
+
+    it('should fail if excludedDomains contains invalid domain patterns', () => {
+        const result = SearchParamsSchema.safeParse({
+            query: 'test',
+            excludedDomains: ['https://example.com/path'],
+        })
+
+        expect(result.success).toBe(false)
+    })
 })

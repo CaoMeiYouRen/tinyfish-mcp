@@ -6,13 +6,13 @@ import { SearchService } from '../services/search'
 import { FetchService } from '../services/fetch'
 import { SearchParamsSchema } from '../schemas/search'
 import { FetchParamsSchema } from '../schemas/fetch'
-import { getApiKey } from '../env'
+import { getApiKey, SEARCH_EXCLUDED_DOMAINS } from '../env'
 import { SEARCH_TOOL, FETCH_TOOL } from './tools'
 
 export function createMcpServer(apiKey?: string) {
     const key = apiKey || getApiKey()
 
-    const searchService = new SearchService(new TinyFishSearchAdapter(key))
+    const searchService = new SearchService(new TinyFishSearchAdapter(key), SEARCH_EXCLUDED_DOMAINS)
     const fetchService = new FetchService(new TinyFishFetchAdapter(key))
 
     const server = new McpServer({

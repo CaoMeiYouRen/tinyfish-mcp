@@ -119,7 +119,7 @@ test/
 - 隔离 SDK 版本升级带来的类型/接口破坏性变更
 - 为未来引入其他搜索 API 预留扩展点
 
-设计原则：简单优先。使用 **基于接口 + 适配器** 的轻量模式，不引入 DI 容器。
+设计原则：简单优先。使用 **基于接口 + 适配器** 的轻量模式，不引入 DI 容器。搜索域名过滤放在 Service 层统一处理：先把排除域名拼接为 `-site:` 搜索操作符，再对返回结果做一次 hostname 兜底过滤。
 
 ```typescript
 // 搜索请求参数（业务层通用类型）
@@ -128,6 +128,7 @@ export interface SearchParams {
   page?: number       // 0–10
   location?: string   // 如 "US", "CN"
   language?: string   // 如 "en", "zh"
+  excludedDomains?: string[] // 额外排除的域名，如 ["*.sohu.com", "example.com"]
 }
 
 // 单条搜索结果
@@ -230,6 +231,7 @@ export const SearchParamsSchema = z.object({
   page: z.number().int().min(0).max(10).optional().default(0),
   location: z.string().max(10).optional(),
   language: z.string().max(10).optional(),
+  excludedDomains: z.array(z.string().regex(/^(?:\*\.)?(?:[a-z0-9-]+\.)+[a-z]{2,}$/i)).max(50).optional(),
 })
 
 export type SearchParamsSchema = z.infer<typeof SearchParamsSchema>
@@ -560,6 +562,7 @@ MCP Handler → Zod 校验 → Service → Adapter → SDK → 结果返回
 | 变量名 | 说明 | 默认值 | 适用模式 |
 |---|---|---|---|
 | `TINYFISH_API_KEY` | TinyFish API Key（必填） | — | Stdio + HTTP |
+| `SEARCH_EXCLUDED_DOMAINS` | 额外排除的搜索域名列表（逗号分隔） | — | Stdio + HTTP |
 | `AUTH_ENABLED` | HTTP 鉴权开关 | `true` | HTTP |
 | `AUTH_TOKEN` | 鉴权 Token（单 Token 场景） | — | HTTP |
 | `AUTH_TOKENS` | 鉴权 Tokens（逗号分隔，多 Token） | — | HTTP |
