@@ -103,7 +103,7 @@ importers:
         version: 25.9.1
       '@vercel/nft':
         specifier: ^1.5.0
-        version: 1.5.0
+        version: 1.10.2
       '@vitest/coverage-v8':
         specifier: ^4.1.6
         version: 4.1.6(vitest@4.1.6)
@@ -1303,15 +1303,6 @@ packages:
   '@rolldown/pluginutils@1.0.1':
     resolution: {integrity: sha512-2j9bGt5Jh8hj+vPtgzPtl72j0yRxHAyumoo6TNfAjsLB04UtpSvPbPcDcBMxz7n+9CYB0c1GxQFxYRg2jimqGw==}
 
-  '@rollup/pluginutils@5.3.0':
-    resolution: {integrity: sha512-5EdhGZtnu3V88ces7s53hhfK5KSASnJZv8Lulpc04cWO3REESroJXg73DFsOmgbU2BhwV0E20bu2IDZb3VKW4Q==}
-    engines: {node: '>=14.0.0'}
-    peerDependencies:
-      rollup: ^4.59.0
-    peerDependenciesMeta:
-      rollup:
-        optional: true
-
   '@rollup/pluginutils@5.4.0':
     resolution: {integrity: sha512-MfPp06CjRLfXQ3wY0R8vJDYBy/MvVcc9OulEfR0B8Iv9ko+GCNaRZ+EpJYFl27LhKsZK0o420sYCRHCjfCgeUg==}
     engines: {node: '>=14.0.0'}
@@ -1633,8 +1624,8 @@ packages:
     engines: {node: '>=20'}
     hasBin: true
 
-  '@vercel/nft@1.5.0':
-    resolution: {integrity: sha512-IWTDeIoWhQ7ZtRO/JRKH+jhmeQvZYhtGPmzw/QGDY+wDCQqfm25P9yIdoAFagu4fWsK4IwZXDFIjrmp5rRm/sA==}
+  '@vercel/nft@1.10.2':
+    resolution: {integrity: sha512-w+WyX5Ulmj4dtTZrxaulqrjaLZHSbnPzx75SJsTNYmotKsqn1JlLnDJa+lz5hn90HJofhl/2MAtw0mCrgM3qYw==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -6313,7 +6304,7 @@ snapshots:
       https-proxy-agent: 7.0.6
       node-fetch: 2.7.0
       nopt: 8.1.0
-      semver: 7.7.4
+      semver: 7.8.1
       tar: 7.5.11
     transitivePeerDependencies:
       - encoding
@@ -6706,12 +6697,6 @@ snapshots:
   '@rolldown/pluginutils@1.0.0-rc.1': {}
 
   '@rolldown/pluginutils@1.0.1': {}
-
-  '@rollup/pluginutils@5.3.0':
-    dependencies:
-      '@types/estree': 1.0.8
-      estree-walker: 2.0.2
-      picomatch: 4.0.4
 
   '@rollup/pluginutils@5.4.0':
     dependencies:
@@ -7242,10 +7227,10 @@ snapshots:
       - rollup
       - supports-color
 
-  '@vercel/nft@1.5.0':
+  '@vercel/nft@1.10.2':
     dependencies:
       '@mapbox/node-pre-gyp': 2.0.3
-      '@rollup/pluginutils': 5.3.0
+      '@rollup/pluginutils': 5.4.0
       acorn: 8.16.0
       acorn-import-attributes: 1.9.5(acorn@8.16.0)
       async-sema: 3.1.1
@@ -8410,7 +8395,7 @@ snapshots:
   eslint-scope@9.1.2:
     dependencies:
       '@types/esrecurse': 4.3.1
-      '@types/estree': 1.0.8
+      '@types/estree': 1.0.9
       esrecurse: 4.3.0
       estraverse: 5.3.0
 
@@ -8489,7 +8474,7 @@ snapshots:
 
   estree-walker@3.0.3:
     dependencies:
-      '@types/estree': 1.0.8
+      '@types/estree': 1.0.9
 
   esutils@2.0.3: {}
 
