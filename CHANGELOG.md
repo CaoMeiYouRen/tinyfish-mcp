@@ -1,5 +1,13 @@
 # tinyfish-mcp
 
+## [1.1.1](https://github.com/CaoMeiYouRen/tinyfish-mcp/compare/v1.1.0...v1.1.1) (2026-05-31)
+
+
+### 🐛 Bug 修复
+
+* **docker:** 构建阶段复制 pnpm-workspace.yaml 替代空的 .npmrc ([df08738](https://github.com/CaoMeiYouRen/tinyfish-mcp/commit/df08738))
+* **security:** 升级依赖修复安全漏洞 ([e68b2e7](https://github.com/CaoMeiYouRen/tinyfish-mcp/commit/e68b2e7))
+
 # [1.1.0](https://github.com/CaoMeiYouRen/tinyfish-mcp/compare/v1.0.6...v1.1.0) (2026-05-19)
 
 
