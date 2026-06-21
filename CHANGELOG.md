@@ -1,5 +1,12 @@
 # tinyfish-mcp
 
+## [1.1.3](https://github.com/CaoMeiYouRen/tinyfish-mcp/compare/v1.1.2...v1.1.3) (2026-06-21)
+
+
+### 🐛 Bug 修复
+
+* **deps:** add overrides for high-severity transitive deps ([5f53fb2](https://github.com/CaoMeiYouRen/tinyfish-mcp/commit/5f53fb2)), closes [hi#severity](https://github.com/hi/issues/severity)
+
 ## [1.1.1](https://github.com/CaoMeiYouRen/tinyfish-mcp/compare/v1.1.0...v1.1.1) (2026-05-31)
 
 
