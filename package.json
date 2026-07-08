@@ -28,7 +28,7 @@
     "release": "semantic-release",
     "lint": "cross-env NODE_ENV=production eslint . --fix",
     "prebuild": "rimraf dist",
-    "build": "cross-env NODE_ENV=production tsdown",
+    "build": "cross-env NODE_ENV=production tsdown --config-loader tsx",
     "dev": "cross-env NODE_ENV=development tsx watch src/server.ts",
     "dev:tsup": "cross-env NODE_ENV=development tsdown --watch",
     "start": "node ./dist/server.mjs",
