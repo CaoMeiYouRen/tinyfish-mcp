@@ -36,8 +36,8 @@ importers:
         specifier: ^1.29.0
         version: 1.30.0(zod@4.4.3)
       '@tiny-fish/sdk':
-        specifier: ^0.1.0
-        version: 0.1.0
+        specifier: ^0.5.0
+        version: 0.5.0
       await-to-js:
         specifier: ^3.0.0
         version: 3.0.0
@@ -1645,8 +1645,8 @@ packages:
     peerDependencies:
       eslint: ^9.0.0 || ^10.0.0
 
-  '@tiny-fish/sdk@0.1.0':
-    resolution: {integrity: sha512-w67YWu+UfvVDFRkHTdhJHiZ4zgwc9WwCrs4HCT6zmR/Vt/Qt2JBNw8gs7OAlxttV9DxE/Zt19+26gMllHryEbQ==}
+  '@tiny-fish/sdk@0.5.0':
+    resolution: {integrity: sha512-axvKff5bgGJCVZskB4rCR8k6veFkMGV+t8IlGGM4tFqZjNGexQvSI/MXqSUD/lxjWHI/e6kWQR1yAW1SALAoVw==}
     engines: {node: '>=18'}
 
   '@tootallnate/once@2.0.1':
@@ -3035,6 +3035,7 @@ packages:
   eslint@9.39.4:
     resolution: {integrity: sha512-XoMjdBOwe/esVgEvLmNsD3IRHkm7fbKIUGvrleloJXUZgDHig2IPWNniv+GwjyJXzuNqVjlr5+4yVUZjycJwfQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
     peerDependencies:
       jiti: '*'
@@ -7490,7 +7491,7 @@ snapshots:
       estraverse: 5.3.0
       picomatch: 4.0.5
 
-  '@tiny-fish/sdk@0.1.0':
+  '@tiny-fish/sdk@0.5.0':
     dependencies:
       p-retry: 7.1.1
       zod: 4.4.3
