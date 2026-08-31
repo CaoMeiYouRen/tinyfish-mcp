@@ -120,7 +120,7 @@
   "dependencies": {
     "@hono/node-server": "^2.0.2",
     "@modelcontextprotocol/sdk": "^1.29.0",
-    "@tiny-fish/sdk": "^0.1.0",
+    "@tiny-fish/sdk": "^0.5.0",
     "await-to-js": "^3.0.0",
     "better-bytes": "^1.2.6",
     "dayjs": "^1.11.20",
