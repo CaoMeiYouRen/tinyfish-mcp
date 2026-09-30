@@ -36,8 +36,8 @@ importers:
         specifier: ^1.29.0
         version: 1.30.0(zod@4.5.1)
       '@tiny-fish/sdk':
-        specifier: ^0.5.0
-        version: 0.5.0
+        specifier: ^0.7.0
+        version: 0.7.0
       await-to-js:
         specifier: ^3.0.0
         version: 3.0.0
@@ -1804,8 +1804,8 @@ packages:
     peerDependencies:
       eslint: ^9.0.0 || ^10.0.0
 
-  '@tiny-fish/sdk@0.5.0':
-    resolution: {integrity: sha512-axvKff5bgGJCVZskB4rCR8k6veFkMGV+t8IlGGM4tFqZjNGexQvSI/MXqSUD/lxjWHI/e6kWQR1yAW1SALAoVw==}
+  '@tiny-fish/sdk@0.7.0':
+    resolution: {integrity: sha512-4XuF348dXj7b0ia1sY5Kh9fEEpnKoVKGYLji+VxjDLZmfuwelSqEh/9qP5qUch5et0T1OR70x8R8RAbsKKEyfg==}
     engines: {node: '>=18'}
 
   '@tootallnate/once@2.0.1':
@@ -7820,7 +7820,7 @@ snapshots:
       estraverse: 5.3.0
       picomatch: 4.0.7
 
-  '@tiny-fish/sdk@0.5.0':
+  '@tiny-fish/sdk@0.7.0':
     dependencies:
       p-retry: 7.1.1
       zod: 4.5.1
