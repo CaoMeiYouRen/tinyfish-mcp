@@ -15,7 +15,7 @@ overrides:
   form-data: ^4.0.6
   tar: ^7.5.18
   undici: ^7.28.0
-  handlebars: ^4.7.9
+  handlebars: ^4.7.10
   flatted: ^3.4.2
   rollup: ^4.59.0
   fast-uri: ^3.1.4
@@ -30,3 +30,8 @@ overrides:
   esbuild: ^0.28.1
   smol-toml: ^1.7.1
   moment: ^2.31.0
+  "@modelcontextprotocol/sdk": ^1.32.0
+  source-map-js: ^1.2.2
+  "@vitest/mocker": ^4.1.12
+  hono: ^4.13.11
+  katex: ^0.18.2
