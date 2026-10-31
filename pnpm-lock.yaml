@@ -43,8 +43,8 @@ importers:
         specifier: ^1.32.0
         version: 1.32.2(zod@4.6.7)
       '@tiny-fish/sdk':
-        specifier: ^0.7.0
-        version: 0.7.0
+        specifier: ^0.11.0
+        version: 0.11.0
       await-to-js:
         specifier: ^3.0.0
         version: 3.0.0
@@ -1811,8 +1811,8 @@ packages:
     peerDependencies:
       eslint: ^9.0.0 || ^10.0.0
 
-  '@tiny-fish/sdk@0.7.0':
-    resolution: {integrity: sha512-4XuF348dXj7b0ia1sY5Kh9fEEpnKoVKGYLji+VxjDLZmfuwelSqEh/9qP5qUch5et0T1OR70x8R8RAbsKKEyfg==}
+  '@tiny-fish/sdk@0.11.0':
+    resolution: {integrity: sha512-HDgnQZafnOCf0CERB+QyZmFo9P7emD0lZ4Kb2WhhPLhEEALrv2r+YWRlak6gGK7a3mJI/OHxgYTv4wd5hfwKgg==}
     engines: {node: '>=18'}
 
   '@tootallnate/once@2.0.1':
@@ -6475,6 +6475,9 @@ packages:
   zod@4.6.7:
     resolution: {integrity: sha512-g8W2D2kU6a8untc053fX1uVBKzM7yqAxW/3zwk83+6RyF2+SKOuV+c0wBDhUwzV1PaGapmZH+rmcUzPf+3CGwg==}
 
+  zod@4.6.7:
+    resolution: {integrity: sha512-g8W2D2kU6a8untc053fX1uVBKzM7yqAxW/3zwk83+6RyF2+SKOuV+c0wBDhUwzV1PaGapmZH+rmcUzPf+3CGwg==}
+
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
 
@@ -7865,7 +7868,7 @@ snapshots:
       estraverse: 5.3.0
       picomatch: 4.0.7
 
-  '@tiny-fish/sdk@0.7.0':
+  '@tiny-fish/sdk@0.11.0':
     dependencies:
       p-retry: 7.1.1
       zod: 4.6.7
@@ -13334,6 +13337,8 @@ snapshots:
   zod@3.22.4: {}
 
   zod@4.1.11: {}
+
+  zod@4.6.7: {}
 
   zod@4.6.7: {}
 
